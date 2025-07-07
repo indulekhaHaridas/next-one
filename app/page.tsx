@@ -17,7 +17,7 @@ export default function Home() {
         Welcome to My Blog 📝
       </h1>
       <p className="text-lg sm:text-xl text-center max-w-xl mb-8 text-gray-700">
-        Dive into stories, insights, and tutorials crafted with passion using <strong>Next.js</strong> and <strong>TypeScript</strong>. Whether you're here to learn, explore, or get inspired — there’s something for everyone. Let&apos;s grow and share knowledge together!
+        Dive into stories, insights, and tutorials crafted with passion using <strong>Next.js</strong> and <strong>TypeScript</strong>. Whether you're here to learn, explore, or get inspired — there’s something for everyone. Lets grow and share knowledge together!
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">
