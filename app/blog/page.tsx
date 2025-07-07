@@ -4,8 +4,15 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function BlogList() {
+    type BlogPost = {
+  id: number;
+  title: string;
+  content: string;
+};
+
   const router = useRouter();
-  const [posts, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] = useState<BlogPost[]>([])
+
 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("blogPosts") || "[]");

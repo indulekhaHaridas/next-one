@@ -3,30 +3,40 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 
+type BlogPost = {
+  id: number;
+  title: string;
+  content: string;
+};
+
 export default function EditBlog() {
   const router = useRouter();
   const { id } = useParams();
   const blogId = Number(id);
 
+  const [posts, setPosts] = useState<BlogPost[]>([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    const posts = JSON.parse(localStorage.getItem("blogPosts") || "[]");
-    const post = posts.find((p: any) => p.id === blogId);
-    if (post) {
-      setTitle(post.title);
-      setContent(post.content);
+    const storedPosts = JSON.parse(localStorage.getItem("blogPosts") || "[]") as BlogPost[];
+    setPosts(storedPosts);
+
+    const postToEdit = storedPosts.find((p) => p.id === blogId);
+    if (postToEdit) {
+      setTitle(postToEdit.title);
+      setContent(postToEdit.content);
     }
   }, [blogId]);
 
   const handleUpdate = (e: React.FormEvent) => {
     e.preventDefault();
-    const posts = JSON.parse(localStorage.getItem("blogPosts") || "[]");
-    const updated = posts.map((p: any) =>
+
+    const updatedPosts = posts.map((p) =>
       p.id === blogId ? { ...p, title, content } : p
     );
-    localStorage.setItem("blogPosts", JSON.stringify(updated));
+
+    localStorage.setItem("blogPosts", JSON.stringify(updatedPosts));
     router.push("/blog");
   };
 

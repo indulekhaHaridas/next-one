@@ -14,13 +14,19 @@ export default function Home() {
         className="mb-6 drop-shadow-lg"
       />
       <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-center text-blue-900">
-       Welcome to My Blog 📝
+        Welcome to My Blog 📝
       </h1>
       <p className="text-lg sm:text-xl text-center max-w-xl mb-8 text-gray-700">
-        Dive into stories, insights, and tutorials crafted with passion using Next.js and TypeScript. Whether you're here to learn, explore, or get inspired — there’s something for everyone. Let’s grow and share knowledge together!
+        Dive into stories, insights, and tutorials crafted with passion using <strong>Next.js</strong> and <strong>TypeScript</strong>. Whether you're here to learn, explore, or get inspired — there’s something for everyone. Let&apos;s grow and share knowledge together!
       </p>
 
-      <div className="flex gap-4 flex-col sm:flex-row">
+      <div className="flex flex-col sm:flex-row gap-4">
+        <Link
+          href="/blog"
+          className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-colors shadow-md text-center text-base font-medium"
+        >
+          🗂 View Blog Posts
+        </Link>
         <Link
           href="/about"
           className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors shadow-md text-center text-base font-medium"
